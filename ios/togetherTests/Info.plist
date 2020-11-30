@@ -20,5 +20,9 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow users to upload their images to their together journal</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<sting>Allow users to upload their images to their together journal</string>
 </dict>
 </plist>
