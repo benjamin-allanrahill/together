@@ -8,16 +8,49 @@
  * @format
  */
 
-import React from 'react';
-import {View, SafeAreaView} from 'react-native';
+import React, {useState} from 'react';
+import {View, SafeAreaView, Text, Button, Image} from 'react-native';
 import {Photo} from '@atoms';
+import CameraRoll from '@react-native-community/cameraroll';
+
+const getPhotosFromCRoll = async (): Promise<
+  CameraRoll.PhotoIdentifier[] | null
+> => {
+  try {
+    const photosRef = await CameraRoll.getPhotos({
+      first: 10,
+    });
+    const images = photosRef.edges;
+    console.log(images);
+    return images;
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
+};
 
 const App = () => {
+  const [images, setImages] = useState<CameraRoll.PhotoIdentifier[] | null>(
+    null,
+  );
   return (
     <SafeAreaView>
-      <View>
-        <Photo uri="https://reactnative.dev/img/tiny_logo.png" />
-      </View>
+      <Button
+        title="Photos"
+        onPress={async () => setImages(await getPhotosFromCRoll())}
+      />
+      {images?.map((image) => (
+        <>
+          <Image
+            style={{
+              width: 100,
+              height: 100,
+            }}
+            source={{uri: image.node.image.uri}}
+          />
+          <Text>{new Date(image.node.timestamp * 1000).toDateString()}</Text>
+        </>
+      ))}
     </SafeAreaView>
   );
 };
