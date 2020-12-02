@@ -46,7 +46,9 @@
       "@atoms": ["src/components/atoms"],
       "@oranisms": ["src/components/organisms"],
       "@molecules": ["src/components/molecules"],
-      "@styles": ["src/styles"]
+      "@styles": ["src/styles"],
+      "@utility": ["src/utils"],
+      "_types": ["src/types"]
     } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
