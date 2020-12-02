@@ -26,7 +26,7 @@ export const signInWithEmailPass = async (email: string, password: string) => {
     if (user) {
       //signed in
       //...
-      console.log('The user is created and signed in');
+      console.log('The user is signed in');
       return user;
     }
   } catch (err) {

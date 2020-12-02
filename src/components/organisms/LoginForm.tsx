@@ -1,24 +1,19 @@
 import * as React from 'react';
 import {Form} from '@molecules';
-import {registerWithEmailPass} from 'utils';
+import {signInWithEmailPass} from 'utils';
 import {Input} from '_types';
 
-interface RegisterFormValues {
-  email: string;
+interface LoginFormValues {
+  username: string;
   password: string;
 }
 
-export const RegisterForm = () => {
-  const [formValues, updateFormValues] = React.useState<RegisterFormValues>({
-    email: '',
+export const LoginForm = () => {
+  const [formValues, updateFormValues] = React.useState<LoginFormValues>({
+    username: '',
     password: '',
   });
   const inputs: Input[] = [
-    {
-      label: 'email address',
-      type: 'email',
-      onChangeInput: (text: string) => onChangeHandler('email', text),
-    },
     {
       label: 'username',
       type: 'text',
@@ -38,11 +33,11 @@ export const RegisterForm = () => {
   };
 
   const onSubmit = () =>
-    registerWithEmailPass(formValues.email, formValues.password);
+    signInWithEmailPass(formValues.username, formValues.password);
   const formProps = {
     inputs,
-    name: 'register',
-    buttonText: 'register',
+    name: 'login',
+    buttonText: 'login',
     onSubmitPress: onSubmit,
   };
   return <Form {...formProps} />;

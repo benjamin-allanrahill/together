@@ -9,8 +9,8 @@
  */
 
 import React, {useState} from 'react';
-import {View, SafeAreaView, Text, Button, Image} from 'react-native';
-import {RegisterForm} from '@oranisms';
+import {SafeAreaView, Text, Button, Image} from 'react-native';
+import {LoginForm, RegisterForm} from '@oranisms';
 import CameraRoll from '@react-native-community/cameraroll';
 
 const getPhotosFromCRoll = async (): Promise<
@@ -36,6 +36,7 @@ const App = () => {
   return (
     <SafeAreaView>
       <RegisterForm />
+      <LoginForm />
       <Button
         title="Photos"
         onPress={async () => setImages(await getPhotosFromCRoll())}
