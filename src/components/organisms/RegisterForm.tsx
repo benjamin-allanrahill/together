@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Form} from '@molecules';
 import {registerWithEmailPass} from 'utils';
+import {Input} from '_types';
 
 interface RegisterFormValues {
   email: string;
@@ -12,13 +13,15 @@ export const RegisterForm = () => {
     email: '',
     password: '',
   });
-  const fields = [
+  const inputs: Input[] = [
     {
-      label: 'email',
+      label: 'email address',
+      type: 'email',
       onChangeInput: (text: string) => onChangeHandler('email', text),
     },
     {
       label: 'password',
+      type: 'text',
       onChangeInput: (text: string) => onChangeHandler('password', text),
     },
   ];
@@ -32,7 +35,7 @@ export const RegisterForm = () => {
   const onSubmit = () =>
     registerWithEmailPass(formValues.email, formValues.password);
   const formProps = {
-    fields,
+    inputs,
     name: 'register',
     buttonText: 'register',
     onSubmitPress: onSubmit,

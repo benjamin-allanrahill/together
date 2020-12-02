@@ -1,24 +1,13 @@
 import * as React from 'react';
 import {View, Text, Button} from 'react-native';
 import {FormInput} from '@atoms';
+import {FormProps} from '_types';
 
-interface Field {
-  label?: string;
-  onChangeInput(text: string): void;
-}
-
-interface FormProps {
-  fields: Field[];
-  name?: string;
-  buttonText?: string;
-  onSubmitPress(): void;
-}
-
-export const Form = ({fields, name, buttonText, onSubmitPress}: FormProps) => {
+export const Form = ({inputs, name, buttonText, onSubmitPress}: FormProps) => {
   return (
     <View>
       {name && <Text>{name}</Text>}
-      {fields.map((field) => (
+      {inputs.map((field) => (
         <FormInput {...field} />
       ))}
       <Button
