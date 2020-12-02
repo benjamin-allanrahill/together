@@ -13,6 +13,8 @@ module.exports = {
           '@oranisms': './src/components/organisms',
           '@molecules': './src/components/molecules',
           '@styles': './src/styles',
+          '@utility': './src/utils',
+          _types: './src/types',
         },
       },
     ],
