@@ -1,12 +1,21 @@
 import * as React from 'react';
 import {Form} from '@molecules';
+import {registerWithEmailPass} from 'utils';
+
+interface RegisterFormValues {
+  email: string;
+  password: string;
+}
 
 export const RegisterForm = () => {
-  const [formValues, updateFormValues] = React.useState({});
+  const [formValues, updateFormValues] = React.useState<RegisterFormValues>({
+    email: '',
+    password: '',
+  });
   const fields = [
     {
-      label: 'name',
-      onChangeInput: (text: string) => onChangeHandler('name', text),
+      label: 'email',
+      onChangeInput: (text: string) => onChangeHandler('email', text),
     },
     {
       label: 'password',
@@ -17,11 +26,11 @@ export const RegisterForm = () => {
   const onChangeHandler = (id: string, newValue: string) => {
     // update fields based off id
     // use the hook to update the values
-    console.log(id);
     updateFormValues({...formValues, [id]: newValue});
   };
 
-  const onSubmit = () => console.log('form values: ', formValues);
+  const onSubmit = () =>
+    registerWithEmailPass(formValues.email, formValues.password);
   const formProps = {
     fields,
     name: 'register',
