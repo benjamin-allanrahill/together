@@ -18,8 +18,6 @@ export const registerWithEmailPass = async (
       updateUser(user, username);
       console.log('user was saved to firestore');
 
-      addContactsToFirestore(user.user.uid);
-
       // return the user to the caller
       return user;
     }
