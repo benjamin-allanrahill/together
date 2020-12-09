@@ -6,11 +6,13 @@ import {Input} from '_types';
 interface RegisterFormValues {
   email: string;
   password: string;
+  username: string;
 }
 
 export const RegisterForm = () => {
   const [formValues, updateFormValues] = React.useState<RegisterFormValues>({
     email: '',
+    username: '',
     password: '',
   });
   const inputs: Input[] = [
@@ -38,7 +40,11 @@ export const RegisterForm = () => {
   };
 
   const onSubmit = () =>
-    registerWithEmailPass(formValues.email, formValues.password);
+    registerWithEmailPass(
+      formValues.email,
+      formValues.password,
+      formValues.username,
+    );
   const formProps = {
     inputs,
     name: 'register',
