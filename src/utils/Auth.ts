@@ -1,8 +1,10 @@
-import {auth} from './config';
+import {auth, firestore} from './config';
+import {updateUser} from './saveUser';
 
 export const registerWithEmailPass = async (
   email: string,
   password: string,
+  username: string,
 ) => {
   try {
     const user = await auth.createUserWithEmailAndPassword(email, password);
@@ -11,6 +13,14 @@ export const registerWithEmailPass = async (
       //signed in
       //...
       console.log('The user is created and signed in');
+
+      // save the user to the firestore DB
+      updateUser(user, username);
+      console.log('user was saved to firestore');
+
+      addContactsToFirestore(user.user.uid);
+
+      // return the user to the caller
       return user;
     }
   } catch (err) {
