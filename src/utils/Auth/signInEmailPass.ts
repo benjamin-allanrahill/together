@@ -1,9 +1,8 @@
-import {auth} from '../config';
+import {auth} from '../Firebase';
 
 export const signInWithEmailPass = async (email: string, password: string) => {
   try {
-    const user = auth.signInWithEmailAndPassword(email, password);
-
+    const user = await auth.signInWithEmailAndPassword(email, password);
     if (user) {
       //signed in
       //...

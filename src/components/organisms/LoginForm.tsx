@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Form} from '@molecules';
-import {signInWithEmailPass} from 'utils';
 import {Input} from '_types';
+import {FirebaseAuthContext} from 'utils/context';
 
 interface LoginFormValues {
   username: string;
@@ -9,6 +9,7 @@ interface LoginFormValues {
 }
 
 export const LoginForm = () => {
+  const {signInEmailPass} = React.useContext(FirebaseAuthContext);
   const [formValues, updateFormValues] = React.useState<LoginFormValues>({
     username: '',
     password: '',
@@ -32,8 +33,15 @@ export const LoginForm = () => {
     updateFormValues({...formValues, [id]: newValue});
   };
 
-  const onSubmit = () =>
-    signInWithEmailPass(formValues.username, formValues.password);
+  const onSubmit = async () => {
+    console.log('submit button pressed');
+    try {
+      await signInEmailPass(formValues.username, formValues.password);
+      console.log('The user was signed in');
+    } catch (err) {
+      console.error(err);
+    }
+  };
   const formProps = {
     inputs,
     name: 'login',
