@@ -1,13 +1,9 @@
 import firebase from 'firebase';
-import {firestore} from './config';
+import {firestore} from './Firebase';
 
-export const updateUser = async (
-  fbUser: firebase.auth.UserCredential,
-  username: string,
-) => {
-  await firestore.collection('users').doc(fbUser.user?.uid).set({
-    userId: fbUser.user?.uid,
-    email: fbUser.user?.email,
-    username,
+export const updateUser = async (fbUser: firebase.User) => {
+  await firestore.collection('users').doc(fbUser.uid).set({
+    userId: fbUser.uid,
+    email: fbUser.email,
   });
 };
