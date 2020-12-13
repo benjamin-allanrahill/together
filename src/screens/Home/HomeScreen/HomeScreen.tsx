@@ -25,7 +25,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
         justifyContent: 'center',
       }}>
       <Text>Welcome {`${auth?.user?.email}`}</Text>
-      <Button onPress={() => auth?.logOut} title="Log out">
+      <Button onPress={() => auth?.logOut()} title="Log out">
         {' '}
         Log out
       </Button>
