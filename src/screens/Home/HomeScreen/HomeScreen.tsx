@@ -1,9 +1,6 @@
 import React, {useContext} from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {
-  HomeScreens,
-  HomeStackParamsList,
-} from 'navigators/HomeNavigator/HomeNavigator';
+import {HomeScreens, HomeStackParamsList} from 'navigators/HomeNavigator';
 import {Button, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {FirebaseAuthContext} from 'utils/context/AuthContext';
