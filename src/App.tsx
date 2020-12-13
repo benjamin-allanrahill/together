@@ -9,19 +9,22 @@
  */
 import 'react-native-gesture-handler';
 import React from 'react';
-import {LoginForm, RegisterForm} from '@oranisms';
 import {NavigationContainer} from '@react-navigation/native';
-import {SplashScreen, splashStack} from 'screens';
+import {HomeScreen} from 'screens/HomeScreen';
+import {AuthFlowNavigator} from 'navigators/AuthFlowNavigator';
+import {FirebaseAuthContext, useAuthContext} from 'utils/context/AuthContext';
 
 const App = () => {
+  const AuthContext = useAuthContext();
   return (
-    <NavigationContainer>
-      <splashStack.Navigator>
-        <splashStack.Screen name="together" component={SplashScreen} />
-        <splashStack.Screen name="login" component={LoginForm} />
-        <splashStack.Screen name="register" component={RegisterForm} />
-      </splashStack.Navigator>
-    </NavigationContainer>
+    <FirebaseAuthContext.Provider value={AuthContext}>
+      <NavigationContainer>
+        {AuthContext.user && !AuthContext.isRegistering && <HomeScreen />}
+        {(!AuthContext.user || AuthContext.isRegistering) && (
+          <AuthFlowNavigator />
+        )}
+      </NavigationContainer>
+    </FirebaseAuthContext.Provider>
   );
 };
 

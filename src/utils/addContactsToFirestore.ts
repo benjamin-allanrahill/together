@@ -1,5 +1,5 @@
 import {Contact} from 'react-native-contacts';
-import {firestore} from './config';
+import {firestore} from './Firebase';
 
 export const addContactsToFirestore = (
   contacts: Contact[] | undefined,
@@ -16,7 +16,7 @@ export const addContactsToFirestore = (
         .collection('ios_contacts')
         .doc(contact.recordID); // use record id so that contacts are not duplicated
 
-      batch.update(docRef, contact);
+      batch.set(docRef, contact);
     });
 
     // commit all the contacts to the collection
