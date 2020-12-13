@@ -2,7 +2,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {
   AuthFlowScreens,
   AuthStackParamsList,
-} from 'navigators/AuthFlowNavigator';
+} from 'navigators/AuthFlowNavigator/Props';
 import React from 'react';
 import {SafeAreaView, Button, Text} from 'react-native';
 

@@ -4,7 +4,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {
   AuthFlowScreens,
   AuthStackParamsList,
-} from 'navigators/AuthFlowNavigator';
+} from 'navigators/AuthFlowNavigator/Props';
 import {useContext} from 'react';
 import {Button, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -24,7 +24,7 @@ export const AuthorizeContactsScreen: React.FC<AuthorizeContactsScreenProps> = (
   const AuthContext = useContext(FirebaseAuthContext);
   return (
     <SafeAreaView
-      style={{flex: 1, alignContent: 'center', justifyContent: 'center'}}>
+      style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Please authorize your contacts</Text>
       <Button
         title="Authorize"

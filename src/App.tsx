@@ -10,16 +10,16 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {HomeScreen} from 'screens/HomeScreen';
 import {AuthFlowNavigator} from 'navigators/AuthFlowNavigator';
 import {FirebaseAuthContext, useAuthContext} from 'utils/context/AuthContext';
+import {HomeNavigator} from 'navigators/HomeNavigator';
 
 const App = () => {
   const AuthContext = useAuthContext();
   return (
     <FirebaseAuthContext.Provider value={AuthContext}>
       <NavigationContainer>
-        {AuthContext.user && !AuthContext.isRegistering && <HomeScreen />}
+        {AuthContext.user && !AuthContext.isRegistering && <HomeNavigator />}
         {(!AuthContext.user || AuthContext.isRegistering) && (
           <AuthFlowNavigator />
         )}
