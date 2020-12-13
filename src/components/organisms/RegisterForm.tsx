@@ -1,7 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import {Form} from '@molecules';
-import {registerWithEmailPass} from 'utils';
 import {Input} from '_types';
+import {registerWithEmailPass} from 'utils/Auth';
+import {FirebaseAuthContext} from 'utils/context';
 
 interface RegisterFormValues {
   email: string;
@@ -15,6 +16,7 @@ export const RegisterForm = () => {
     username: '',
     password: '',
   });
+  const AuthContext = React.useContext(FirebaseAuthContext);
   const inputs: Input[] = [
     {
       label: 'email address',
@@ -39,12 +41,10 @@ export const RegisterForm = () => {
     updateFormValues({...formValues, [id]: newValue});
   };
 
-  const onSubmit = () =>
-    registerWithEmailPass(
-      formValues.email,
-      formValues.password,
-      formValues.username,
-    );
+  const onSubmit = () => {
+    AuthContext?.registerEmailPass(formValues.email, formValues.password);
+  };
+
   const formProps = {
     inputs,
     name: 'register',

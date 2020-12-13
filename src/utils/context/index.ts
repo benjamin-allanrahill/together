@@ -1,5 +1,1 @@
-export {
-  FIREBASE_DEFAULT,
-  FirebaseAuthContext,
-  useFirebaseUser,
-} from './AuthContext';
+export {FirebaseAuthContext, useAuthContext} from './AuthContext';

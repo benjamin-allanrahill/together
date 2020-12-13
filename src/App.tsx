@@ -12,15 +12,17 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {HomeScreen} from 'screens/HomeScreen';
 import {AuthFlowNavigator} from 'navigators/AuthFlowNavigator';
-import {FirebaseAuthContext, useFirebaseUser} from 'utils/context/AuthContext';
+import {FirebaseAuthContext, useAuthContext} from 'utils/context/AuthContext';
 
 const App = () => {
-  const AuthContext = useFirebaseUser();
+  const AuthContext = useAuthContext();
   return (
     <FirebaseAuthContext.Provider value={AuthContext}>
       <NavigationContainer>
-        {AuthContext.user && <HomeScreen />}
-        {!AuthContext.user && <AuthFlowNavigator />}
+        {AuthContext.user && !AuthContext.isRegistering && <HomeScreen />}
+        {(!AuthContext.user || AuthContext.isRegistering) && (
+          <AuthFlowNavigator />
+        )}
       </NavigationContainer>
     </FirebaseAuthContext.Provider>
   );

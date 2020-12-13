@@ -22,7 +22,7 @@ interface SplashScreenProps {
 export const SplashScreen: React.FC<SplashScreenProps> = ({navigation}) => (
   <SafeAreaView
     style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    <Text style={{fontSize: 45, marginBottom: 25}}>together</Text>
+    <Text style={{fontSize: 45, marginBottom: 50}}>together</Text>
     <Button
       title="log in"
       onPress={() => navigation.navigate(AuthFlowScreens.Login)}
