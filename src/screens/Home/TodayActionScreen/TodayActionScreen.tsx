@@ -1,6 +1,6 @@
 import React from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {HomeScreens, HomeStackParamsList} from 'navigators/HomeNavigator';
+import {HomeScreens, HomeStackParamsList} from 'navigators/HomeNavigator/Props';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Button, Text} from 'react-native';
 
