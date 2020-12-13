@@ -1,5 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import {HomeScreen} from 'screens/Home/HomeScreen';
+import {TodayActionScreen} from 'screens/Home/TodayActionScreen';
+import {TodayPersonScreen} from 'screens/Home/TodayPersonScreen';
 
 export enum HomeScreens {
   Home = 'Home',
@@ -18,17 +21,14 @@ const HomeStack = createStackNavigator<HomeStackParamsList>();
 export const HomeNavigator: React.FunctionComponent = () => {
   return (
     <HomeStack.Navigator headerMode="none">
-      <HomeStack.Screen
-        name={HomeScreens.Home}
-        component={AuthorizeContactsScreen}
-      />
+      <HomeStack.Screen name={HomeScreens.Home} component={HomeScreen} />
       <HomeStack.Screen
         name={HomeScreens.TodayAction}
-        component={SplashScreen}
+        component={TodayActionScreen}
       />
       <HomeStack.Screen
         name={HomeScreens.TodayPerson}
-        component={LoginScreen}
+        component={TodayPersonScreen}
       />
     </HomeStack.Navigator>
   );
