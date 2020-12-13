@@ -7,23 +7,23 @@ import {
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Button, Text} from 'react-native';
 
-type TodayActionScreenNavProp = StackNavigationProp<
+type TodayPersonScreenNavProp = StackNavigationProp<
   HomeStackParamsList,
-  HomeScreens.TodayAction
+  HomeScreens.TodayPerson
 >;
 
-interface TodayActionScreenProps {
-  navigation: TodayActionScreenNavProp;
+interface TodayPersonScreenProps {
+  navigation: TodayPersonScreenNavProp;
 }
-export const TodayActionScreen: React.FC<TodayActionScreenProps> = ({
+export const TodayPersonScreen: React.FC<TodayPersonScreenProps> = ({
   navigation,
 }) => {
   return (
     <SafeAreaView>
-      <Text> This is the today action screen </Text>
+      <Text> This is the today Person screen </Text>
       <Button
-        title="Person"
-        onPress={() => navigation.navigate(HomeScreens.TodayPerson)}
+        title="Home"
+        onPress={() => navigation.navigate(HomeScreens.Home)}
       />
     </SafeAreaView>
   );
