@@ -5,7 +5,7 @@ import {useAuthContext} from 'utils/context';
 
 export const useContacts = () => {
   const [contacts, setContacts] = useState<Contact[] | undefined>();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const AuthContext = useAuthContext();
 
   useEffect(() => {
@@ -18,5 +18,6 @@ export const useContacts = () => {
     };
     // call the helper to get the contacts
     fetchContacts();
-  });
+  }, [AuthContext.user]);
+  return {contacts, isLoading};
 };

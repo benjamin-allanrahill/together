@@ -7,11 +7,14 @@ export const getContactsFromFirestore = async (
   // write the contacts to firestore
   if (firebaseUserID) {
     console.log('Getting contacts from firestore');
-    const snapshot = await firestore
-      .collection(`users/${firebaseUserID}/ios_contacts`)
-      .get();
-
-    // return an array with the data using firebase map function
-    return snapshot.docs.map((doc) => doc.data()) as Contact[];
+    try {
+      const snapshot = await firestore
+        .collection(`users/${firebaseUserID}/ios_contacts`)
+        .get();
+      // return an array with the data using firebase map function
+      return snapshot.docs.map((doc) => doc.data()) as Contact[];
+    } catch (e) {
+      console.error(e);
+    }
   }
 };
