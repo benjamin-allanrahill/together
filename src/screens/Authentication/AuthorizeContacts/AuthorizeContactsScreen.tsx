@@ -9,7 +9,7 @@ import {useContext} from 'react';
 import {Button, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {FirebaseAuthContext} from 'utils/context';
-import {getAllContacts} from 'utils/getAllContacts';
+import {getAllContacts} from 'utils/Contacts/getAllContacts';
 
 type AuthorizeContactsScreenNavigationProps = StackNavigationProp<
   AuthStackParamsList,
