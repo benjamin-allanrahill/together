@@ -19,6 +19,6 @@ export const useAuthListener = (): AuthParams => {
         setIsLoading(false);
       }
     });
-  });
+  }, []);
   return [user, isLoading];
 };
