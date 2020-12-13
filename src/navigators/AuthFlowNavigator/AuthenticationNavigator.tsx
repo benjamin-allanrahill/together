@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {SplashScreen} from 'screens/SplashScreen';
-import {LoginScreen} from 'screens/LoginScreen';
-import {RegisterScreen} from 'screens/RegisterScreen';
-import {AuthorizeContactsScreen} from 'screens/Registration/AuthorizeContacts/AuthorizeContactsScreen';
+import {SplashScreen} from 'screens/Authentication/SplashScreen';
+import {LoginScreen} from 'screens/Authentication/LoginScreen';
+import {RegisterScreen} from 'screens/Authentication/RegisterScreen';
+import {AuthorizeContactsScreen} from 'screens/Authentication/AuthorizeContacts';
 import {FirebaseAuthContext} from 'utils/context';
 
 export enum AuthFlowScreens {

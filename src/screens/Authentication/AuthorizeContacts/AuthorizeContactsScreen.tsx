@@ -24,7 +24,7 @@ export const AuthorizeContactsScreen: React.FC<AuthorizeContactsScreenProps> = (
   const AuthContext = useContext(FirebaseAuthContext);
   return (
     <SafeAreaView
-      style={{flex: 1, alignContent: 'center', justifyContent: 'center'}}>
+      style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Please authorize your contacts</Text>
       <Button
         title="Authorize"
