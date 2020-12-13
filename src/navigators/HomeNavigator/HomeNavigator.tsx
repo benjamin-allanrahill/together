@@ -3,18 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {HomeScreen} from 'screens/Home/HomeScreen';
 import {TodayActionScreen} from 'screens/Home/TodayActionScreen';
 import {TodayPersonScreen} from 'screens/Home/TodayPersonScreen';
-
-export enum HomeScreens {
-  Home = 'Home',
-  TodayAction = 'TodayAction',
-  TodayPerson = 'TodayPerson',
-}
-
-export type HomeStackParamsList = {
-  Home: undefined;
-  TodayAction: undefined;
-  TodayPerson: undefined;
-};
+import {HomeScreens, HomeStackParamsList} from './Props';
 
 const HomeStack = createStackNavigator<HomeStackParamsList>();
 
