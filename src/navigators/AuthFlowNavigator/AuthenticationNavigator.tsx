@@ -5,20 +5,7 @@ import {LoginScreen} from 'screens/Authentication/LoginScreen';
 import {RegisterScreen} from 'screens/Authentication/RegisterScreen';
 import {AuthorizeContactsScreen} from 'screens/Authentication/AuthorizeContacts';
 import {FirebaseAuthContext} from 'utils/context';
-
-export enum AuthFlowScreens {
-  Splash = 'Splash',
-  Login = 'Login',
-  Register = 'Register',
-  Contacts = 'Contacts',
-}
-
-export type AuthStackParamsList = {
-  Splash: undefined;
-  Login: undefined;
-  Register: undefined;
-  Contacts: undefined;
-};
+import {AuthFlowScreens, AuthStackParamsList} from './Props';
 
 const AuthStack = createStackNavigator<AuthStackParamsList>();
 

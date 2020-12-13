@@ -4,7 +4,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {
   AuthFlowScreens,
   AuthStackParamsList,
-} from 'navigators/AuthFlowNavigator';
+} from 'navigators/AuthFlowNavigator/Props';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Button, Text} from 'react-native';
 import {RegisterForm} from 'components/organisms';
