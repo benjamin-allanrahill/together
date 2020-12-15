@@ -1,5 +1,5 @@
 import {Contact} from 'react-native-contacts';
-import {firestore} from './Firebase';
+import {firestore} from '../../Firebase';
 
 export const addContactsToFirestore = (
   contacts: Contact[] | undefined,

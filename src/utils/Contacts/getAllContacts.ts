@@ -1,5 +1,5 @@
 import Contacts, {Contact} from 'react-native-contacts';
-import {addContactsToFirestore} from './addContactsToFirestore';
+import {addContactsToFirestore} from './Firebase/addContactsToFirestore';
 
 export const getAllContacts = async (firebaseUserID: string | undefined) => {
   try {
