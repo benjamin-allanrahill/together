@@ -4,6 +4,7 @@ import {HomeScreens, HomeStackParamsList} from 'navigators/HomeNavigator/Props';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Button, Text} from 'react-native';
 import {useContacts} from 'utils/hooks/Contacts';
+import {selectRandomContacts} from 'utils/Contacts/selectRandomContacts';
 
 type TodayPersonScreenNavProp = StackNavigationProp<
   HomeStackParamsList,
@@ -24,7 +25,7 @@ export const TodayPersonScreen: React.FC<TodayPersonScreenProps> = ({
       ) : (
         <>
           <Text> This is the today Person screen </Text>
-          {contacts?.map((contact, i) => (
+          {selectRandomContacts(3, contacts)?.map((contact, i) => (
             <Text key={i}>{contact.givenName}</Text>
           ))}
           <Button
